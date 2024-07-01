@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Registrar Caso de Cliente{% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/registro_caso_cliente.css' %}">
+<div class="container">
+    <h1>Registrar Caso de Cliente</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-group">
+            {{ form.rut_cliente.errors }}
+            <label for="{{ form.rut_cliente.id_for_label }}">RUT:</label>
+            {{ form.rut_cliente }}
+        </div>
+        <div class="form-group">
+            {{ form.nombre.errors }}
+            <label for="{{ form.nombre.id_for_label }}">Nombre:</label>
+            {{ form.nombre }}
+        </div>
+        <div class="form-group">
+            {{ form.descripcion_caso.errors }}
+            <label for="{{ form.descripcion_caso.id_for_label }}">Descripción del caso:</label>
+            {{ form.descripcion_caso }}
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Registrar Caso</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var rutInput = document.getElementById('{{ form.rut_cliente.id_for_label }}');
+        var errorSpan = rutInput.parentElement.querySelector('.errorlist');
+
+        rutInput.addEventListener('input', function () {
+            if (errorSpan) {
+                errorSpan.style.display = 'none';
+            }
+        });
+    });
+</script>
+{% endblock %}
