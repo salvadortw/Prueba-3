@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Eliminar Agente de Ventas</h2>
+  <p>¿Está seguro que desea eliminar al agente de ventas {{ agente.rut }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Eliminar</button>
+  </form>
+{% endblock %}

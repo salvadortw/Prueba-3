@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Agentes de Ventas</h2>
+  <ul>
+    {% for agente in agentes %}
+      <li>{{ agente.rut }} - {{ agente.email }}</li>
+      <a href="{% url 'editar_agente' agente.pk %}">Editar</a>
+      <a href="{% url 'eliminar_agente' agente.pk %}">Eliminar</a>
+    {% empty %}
+      <li>No hay agentes de ventas registrados.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'crear_agente' %}">Crear Agente de Ventas</a>
+{% endblock %}

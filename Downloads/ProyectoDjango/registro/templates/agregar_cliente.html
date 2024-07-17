@@ -1,0 +1,15 @@
+<!-- ventas/templates/ventas/agregar_cliente.html -->
+
+{% extends 'layouts/base.html' %}
+{% block title %}Agregar Cliente{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Agregar Cliente</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+{% endblock %}

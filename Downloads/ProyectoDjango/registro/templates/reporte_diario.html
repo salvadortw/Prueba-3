@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Reporte Diario{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Reporte Diario</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Clientes Potenciales Registrados Hoy</h5>
+                    <p class="card-text text-center">{{ clientes_potenciales_hoy }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Casos Registrados Hoy (Quejas o Sugerencias)</h5>
+                    <p class="card-text text-center">{{ casos_hoy }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

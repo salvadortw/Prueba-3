@@ -1,0 +1,13 @@
+<!-- ventas/templates/ventas/detalle_cliente.html -->
+
+{% extends 'layouts/base.html' %}
+{% block title %}Detalle de Cliente - {{ cliente.nombre }}{% endblock %}
+
+{% block content %}
+<h1>Detalle de Cliente - {{ cliente.nombre }}</h1>
+<p>Nombre: {{ cliente.nombre }}</p>
+<p>Email: {{ cliente.email }}</p>
+<!-- Mostrar más detalles según sea necesario -->
+<a href="{% url 'editar_cliente' cliente.pk %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'eliminar_cliente' cliente.pk %}" class="btn btn-danger">Eliminar</a>
+{% endblock %}
